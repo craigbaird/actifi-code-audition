@@ -180,6 +180,7 @@ export class FantasyLeaguePlayersComponent implements OnInit {
     this.itemsPerPage = itemsPerPage;
     this.allPlayers = this.fantasyLeaguePlayersDataService.getAllFantasyLeaguePlayers();
     this.setAllValues();
+    this.currentPage = 1;
   }
 
   setNumberOfPages() {
