@@ -3,4 +3,13 @@
     background-color: white; 
     border: 1px solid #dee2e6; 
     border-radius: 0px;
+    height: 100%;
+}
+.pageHeading {
+    background-color: red($color: #000000);
+}
+.pageLabel {
+    font-size: 30px;
+    align-items: right;
+    margin-top: 18px;
 }

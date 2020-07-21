@@ -7,6 +7,10 @@
     <div class="col">
         <h1 class="display-4">Fantasy League Players</h1>
     </div>
+
+    <div class="col" class="pageLabel">
+        <label>Page {{currentPage}}</label>
+    </div>
 </div>
 
 <hr>
@@ -18,17 +22,17 @@
     </div>
 
     <div class="col"> 
-
         <ul class="pagination justify-content-end">
             <li class="page-item"><a class="page-link" href="#" (click)="previousButtonClicked()">Previous</a></li>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle pageNumberDropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{currentPage}}
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let page of pageNumberList">
-                    <a class="dropdown-item" href="#" (click)="changePage(page.pageNumber)">{{page.pageNumber}}</a>
-                </div>
-            </div>
+            <li class="dropdown">
+                <select class="btn btn-secondary dropdown-toggle pageNumberDropdown" (change)="changePage($event.target.value)" aria-haspopup="true" aria-expanded="false">
+                    <option selected disabled>Page</option>  
+                    <option class="dropdown-divider" disabled></option>
+                    <option id="pageNumberOption" *ngFor="let page of pageNumberList" value="{{page.pageNumber}}">
+                        {{page.pageNumber}}
+                    </option>
+                </select>
+            </li>
             <li class="page-item"><a class="page-link" href="#" (click)="nextButtonClicked()">Next</a></li>
         </ul>
 
@@ -91,9 +95,14 @@
 
         <ul class="pagination justify-content-end">
             <li class="page-item"><a class="page-link" href="#"(click)="previousButtonClicked()">Previous</a></li>
-            <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+            <li class="dropdown">
+                <select class="btn btn-secondary dropdown-toggle pageNumberDropdown" (change)="changePage($event.target.value)" aria-haspopup="true" aria-expanded="false">
+                    <option>Page</option>  
+                    <option *ngFor="let page of pageNumberList" value={{page.pageNumber}}>
+                        {{page.pageNumber}}
+                    </option>
+                </select>
+            </li>
             <li class="page-item"><a class="page-link" href="#" (click)="nextButtonClicked()">Next</a></li>
         </ul>
 

@@ -28,7 +28,6 @@ export class FantasyLeaguePlayersComponent implements OnInit {
     this.setNumberOfPages();
     this.assignPlayersPageNumbers();
     this.createPageNumbersList();
-    console.log(this.allPlayers, this.itemsPerPage, this.numberOfPages, this.numberOfItems, this.pageNumberList, this.currentPage);
   }
 
   addPlayerModal() {
@@ -211,9 +210,19 @@ export class FantasyLeaguePlayersComponent implements OnInit {
     })
   }
 
-  changePage(pageNumber) {
+  changePage(value) {
+    let pageNumber = parseInt(value);
     console.log('page number', pageNumber);
+    this.currentPage = pageNumber;
+    // this.selectElement('pageNumberOption', pageNumber); 
   }
+
+// TODO select and set dropdown value equal to page changes
+//   selectElement(id, valueToSelect) {    
+//     let element = (<HTMLInputElement>document.getElementById(id));
+//     console.log(element);
+//     element.value = valueToSelect;
+// }
 
   updateNumberOfItems() {
     this.numberOfItems = this.allPlayers.length;
